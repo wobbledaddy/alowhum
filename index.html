@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Gallery</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: magenta;
+    }
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+    }
+    .gallery img {
+        width: calc(33.33% - 20px);
+        margin: 10px;
+        cursor: pointer;
+    }
+    .gallery img:hover {
+        opacity: 0.7;
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+    .modal-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 80%;
+        max-height: 80%;
+    }
+    .modal-content img {
+        width: 100%;
+        height: 100%;
+    }
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 20px;
+        cursor: pointer;
+        color: #fff;
+    }
+</style>
+</head>
+<body>
+
+<div class="gallery">
+    <img src="pic/PXL_20240209_093005825.jpg" alt="Photo 1" onclick="openModal('pic/PXL_20240209_093005825.jpg')" />
+    <img src="pic/PXL_20240216_035028082.MP.jpg" alt="Photo 2" onclick="openModal('pic/PXL_20240216_035028082.MP.jpg')" />
+    <img src="pic/PXL_20240216_181106005.jpg" alt="Photo 3" onclick="openModal('pic/PXL_20240216_181106005.jpg')" />
+    <img src="pic/PXL_20240217_043652911.jpg" alt="Photo 4" onclick="openModal('pic/PXL_20240217_043652911.jpg')" />
+    <img src="pic/PXL_20240217_082400070.MP.jpg" alt="Photo 5" onclick="openModal('pic/PXL_20240217_082400070.MP.jpg')" />
+    <img src="pic/PXL_20240217_091927960.jpg" alt="Photo 6" onclick="openModal('pic/PXL_20240217_091927960.jpg')" />
+    <img src="pic/PXL_20240217_101451449.jpg" alt="Photo 7" onclick="openModal('pic/PXL_20240217_101451449.jpg')" />
+    <img src="pic/PXL_20240217_102528397.jpg" alt="Photo 8" onclick="openModal('pic/PXL_20240217_102528397.jpg')" />
+    <img src="pic/PXL_20240217_114154906.jpg" alt="Photo 9" onclick="openModal('pic/PXL_20240217_114154906.jpg')" />
+    <img src="pic/PXL_20240217_150037587.jpg" alt="Photo 10" onclick="openModal('pic/PXL_20240217_150037587.jpg')" />
+    <img src="pic/PXL_20240217_161641280.jpg" alt="Photo 11" onclick="openModal('pic/PXL_20240217_161641280.jpg')" />
+    <img src="pic/PXL_20240218_000211478.jpg" alt="Photo 12" onclick="openModal('pic/PXL_20240218_000211478.jpg')" />
+    <img src="pic/PXL_20240218_031528845.jpg" alt="Photo 13" onclick="openModal('pic/PXL_20240218_031528845.jpg')" />
+    <img src="pic/PXL_20240218_032709822.jpg" alt="Photo 14" onclick="openModal('pic/PXL_20240218_032709822.jpg')" />
+    <img src="pic/PXL_20240218_051641689.jpg" alt="Photo 15" onclick="openModal('pic/PXL_20240218_051641689.jpg')" />
+    <img src="pic/PXL_20240218_051713856.MP.jpg" alt="Photo 16" onclick="openModal('pic/PXL_20240218_051713856.MP.jpg')" />
+    <img src="pic/PXL_20240218_052112323.jpg" alt="Photo 17" onclick="openModal('pic/PXL_20240218_052112323.jpg')" />
+    <img src="pic/PXL_20240218_060515508.jpg" alt="Photo 18" onclick="openModal('pic/PXL_20240218_060515508.jpg')" />
+    <img src="pic/PXL_20240218_063531923.MP.jpg" alt="Photo 19" onclick="openModal('pic/PXL_20240218_063531923.MP.jpg')" />
+    <img src="pic/PXL_20240218_064430184.jpg" alt="Photo 20" onclick="openModal('pic/PXL_20240218_064430184.jpg')" />
+    <img src="pic/PXL_20240218_075926529.jpg" alt="Photo 21" onclick="openModal('pic/PXL_20240218_075926529.jpg')" />
+    <!-- Add more images if needed -->
+</div>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modal-img" src="" alt="Enlarged Photo">
+    </div>
+</div>
+
+<script>
+    function openModal(imgSrc) {
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("modal-img");
+        modal.style.display = "block";
+        modalImg.src = imgSrc;
+    }
+
+    function closeModal() {
+        var modal = document.getElementById("myModal");
+        modal.style.display = "none";
+    }
+</script>
+
+</body>
+</html>
